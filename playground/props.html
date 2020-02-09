@@ -10,6 +10,9 @@
     <div id="app">
         <!-- v-bind:프롭스 속성이름="상위 컴포넌트의 데이터 이름" -->
         <!-- 프롭스 속성 이름은 components에 정의 -->
+        <!-- 컴포넌트를 호출할 때 props로 상위 컴포넌트의 데이터를 전달 -->
+        <!-- app-header와 app-content의 상위 컴포넌트는 Root 컴포넌트이기 때문에 뷰 인스턴스 data에 포함된 message와 num을 props로 전달할 수 있음 -->
+        <!-- Reactivity가 props에도 반영이 되기 때문에 상위 컴포넌트에서 props로 전달한 값을 변경하면 마찬가지로 하위 컴포넌트의 props 데이터도 변경됨 -->
         <app-header v-bind:propsdata="message"></app-header>
         <app-content v-bind:propsdata="num"></app-content>
     </div>
@@ -31,6 +34,8 @@
                 'app-header': appHeader,
                 'app-content': appContent
             },
+            // Root 컴포넌트에 포함되는 데이터
+            // 컴포넌트에 등록된 컴포넌트들은 모두 Root 컴포넌트의 하위 컴포넌트들이기 때문에 props로 데이터를 전달해줄 수 있음
             data: {
                 message: 'hi',
                 num: 10
