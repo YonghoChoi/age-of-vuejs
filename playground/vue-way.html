@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        var div = document.querySelector('#app');
+        var viewModel = {};
+
+        // Object.defineProperty 함수는 객체의 동작을 재정의. 예를들어 객체에는 접근과 대입을 할 수 있는 속성이 있는데 이런 기능을 변경할 수 있음 
+        Object.defineProperty(viewModel, 'str', {
+            // 속성에 접근했을 때의 동작을 정의
+            get: function() {
+                console.log('접근');
+            },
+            set: function(newValue) {
+                console.log('할당', newValue);
+                // 오브젝트의 기능을 재정의 하여 변경이 발생할 때마다 브라우저에 갱신하도록 함
+                // 이 부분이 Vue.js의 핵심인 Reactivity!
+                div.innerHTML = newValue;
+            }
+        })
+        div.innerHTML = 'hello world'
+    </script>
+</body>
+</html>
