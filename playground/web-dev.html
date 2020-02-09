@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        var div = document.querySelector('#app'); // == $('#app')
+        var str = "hello workd";
+        div.innerHTML = str;
+
+        // 만약 다른 곳에서 문자열이 변경되었다면 다시 div 태그 객체의 innerHTML에 갱신된 문자열을 넣어줘야함
+        // 이 예제에서는 바로 아래서 문자열을 변경했지만, 이벤트나 다른 객체에서 참조와 같이 완전히 다른 컨텍스트에서 데이터가 변경될 수도 있음
+        str = 'hello world!!!';
+        div.innerHTML = str;
+        
+    </script>
+</body>
+</html>
