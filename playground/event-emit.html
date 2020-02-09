@@ -16,6 +16,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script>
         var appHeader = {
+            // template에 지정된 함수는 해당 컴포넌트의 methods에 등록된 함수를 호출
+            // 다른 영역의 함수는 호출 불가능
             template: '<button v-on:click="passEvent">click me</button>',
             methods: {
                 passEvent: function() {
